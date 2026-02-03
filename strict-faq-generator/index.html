@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strict FAQ Generator</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i data-lucide="shield-check"></i>
+                <h1>Strict FAQ <span class="gradient-text">Generator</span></h1>
+            </div>
+            <p class="subtitle">Zero assumptions. Verbatim sources. Pure truth.</p>
+        </header>
+
+        <main>
+            <!-- Input Section -->
+            <section class="input-panel">
+                <div class="panel-header">
+                    <label for="sourceText">
+                        <i data-lucide="file-text"></i> Source Document
+                    </label>
+                    <div class="tone-control">
+                        <label for="toneSelect" class="tone-label"><i data-lucide="wand-2"></i> Style</label>
+                        <select id="toneSelect">
+                            <option value="Strict">Strict (Default)</option>
+                            <option value="Friendly">Friendly</option>
+                            <option value="ELI5">ELI5 (Simple)</option>
+                            <option value="Sarcastic">Sarcastic</option>
+                            <option value="Pirate">Pirate Mode</option>
+                        </select>
+                    </div>
+                </div>
+                <textarea id="sourceText"
+                    placeholder="Paste your source text here. The generator will derive facts ONLY from this content..."></textarea>
+
+                <div class="actions">
+                    <button id="generateBtn" class="primary-btn">
+                        <span class="btn-content">Generate FAQs</span>
+                        <span class="btn-loader"></span>
+                    </button>
+                    <div id="statusMessage"></div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="resultsPanel" class="results-panel hidden">
+                <div class="section-header">
+                    <h2>Generated FAQs</h2>
+                    <div class="header-actions">
+                        <button id="downloadBtn" class="icon-btn" title="Download PDF">
+                            <i data-lucide="download"></i>
+                        </button>
+                        <div class="badge">Strict Mode Active</div>
+                    </div>
+                </div>
+                <div id="faqList" class="faq-grid">
+                    <!-- Cards will be injected here -->
+                </div>
+
+                <!-- Custom Q&A Section -->
+                <div class="qa-section">
+                    <div class="qa-divider">
+                        <span>or ask something specific</span>
+                    </div>
+                    <div class="qa-input-group">
+                        <input type="text" id="customQuestion"
+                            placeholder="Ask a specific question about this document...">
+                        <button id="askBtn" class="icon-btn primary-btn-small">
+                            <i data-lucide="send"></i>
+                        </button>
+                    </div>
+                    <div id="qaResult" class="faq-card hidden">
+                        <!-- Custom Answer will appear here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Powered by Gemini 1.5 Flash • Honest AI</p>
+        </footer>
+    </div>
+
+    <!-- Logic -->
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
