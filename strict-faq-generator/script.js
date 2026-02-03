@@ -9,7 +9,7 @@ const customQuestionInput = document.getElementById('customQuestion');
 const qaResult = document.getElementById('qaResult');
 
 // Google Gemini API Key
-const API_KEY = "AIzaSyBH8b41SHuSCrHNluzb42Kir2boFo3nCzE";
+const API_KEY = "";
 
 /**
  * Shared function to call Gemini with Retry and Quota handling
@@ -251,3 +251,4 @@ askBtn.addEventListener('click', askSpecificQuestion);
 customQuestionInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') askSpecificQuestion();
 });
+
